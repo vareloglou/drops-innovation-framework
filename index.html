@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DROPS â Innovation Framework</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --red: #CC0000;
+    --red-dark: #A00000;
+    --dark: #111111;
+    --gray-900: #1a1a1a;
+    --gray-800: #2a2a2a;
+    --gray-700: #3a3a3a;
+    --gray-600: #555555;
+    --gray-500: #777777;
+    --gray-400: #999999;
+    --gray-300: #cccccc;
+    --gray-200: #e5e5e5;
+    --gray-100: #f5f5f5;
+    --white: #ffffff;
+    --blue: #1a3a5c;
+    --blue-light: #e8f0f8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--white);
+    color: var(--gray-900);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--dark);
+    color: var(--white);
+    padding: 100px 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(204,0,0,0.15) 0%, transparent 70%);
+  }
+  .hero-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 24px;
+    border: 1px solid rgba(204,0,0,0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+  }
+  .hero h1 {
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+  .hero h1 span { color: var(--red); }
+  .hero .subtitle {
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--gray-400);
+    max-width: 600px;
+    line-height: 1.5;
+  }
+  .hero .confidential {
+    position: absolute;
+    bottom: 20px; right: 60px;
+    font-size: 11px;
+    color: var(--gray-600);
+    letter-spacing: 1px;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 80px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--gray-900);
+  }
+  .section-text {
+    font-size: 17px;
+    color: var(--gray-600);
+    max-width: 720px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  /* WHY DROPS */
+  .why-section {
+    background: var(--gray-100);
+    padding: 80px 60px;
+  }
+  .why-section .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+  .why-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 36px 32px;
+    border: 1px solid var(--gray-200);
+    transition: box-shadow 0.2s;
+  }
+  .why-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  }
+  .why-card .icon {
+    width: 48px; height: 48px;
+    border-radius: 10px;
+    background: var(--dark);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .why-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--gray-900);
+  }
+  .why-card p {
+    font-size: 15px;
+    color: var(--gray-500);
+    line-height: 1.6;
+  }
+
+  /* VOCABUSRARV -->
+  .vocab-section {
+    background: var(--dark);
+    color: var(--white);
+    padding: 80px 60px;
+  }
+  .vocab-section .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .vocab-section .section-title { color: var(--white); }
+  .vocab-section .section-text { color: var(--gray-400); }
+  .vocab-flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-top: 48px;
+    position: relative;
+  }
+  .vocab-card {
+    flex: 1;
+    padding: 36px 28px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .vocab-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .vocab-card.drop { background: rgba(204,0,0,0.08); }
+  .vocab-card.drop::before { background: var(--red); }
+  .vocab-card.ripple { background: rgba(204,0,0,0.06); margin-left: 12px; }
+  .vocab-card.ripple::before { background: rgba(204,0,0,0.7); }
+  .vocab-card.stream { background: rgba(204,0,0,0.04); margin-left: 12px; }
+  .vocab-card.stream::before { background: rgba(204,0,0,0.5); }
+  .vocab-card.wave { background: rgba(204,0,0,0.02); margin-left: 12px; }
+  .vocab-card.wave::before { background: rgba(204,0,0,0.3); }
+
+  .vocab-card .v-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .vocab-card h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    color: var(--white);
+  }
+  .vocab-card .v-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .vocab-card p {
+    font-size: 14px;
+    color: var(--gray-400);
+    line-height: 1.6;
+  }
+  .vocab-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--gray-600);
+    font-size: 20px;
+    padding: 0 4px;
+  }
+
+  /* PORTFOLIO TABLE */
+  .portfolio-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 48px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .portfolio-table th {
+    background: var(--red);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 16px 20px;
+    text-align: left;
+  }
+  .portfolio-table td {
+    padding: 18px 20px;
+    font-size: 14px;
+    color: var(--gray-300);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .portfolio-table tr:last-child td { border-bottom: none; }
+  .tier-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .tier-badge.core { background: var(--red); color: var(--white); }
+  .tier-badge.growth { background: rgba(204,0,0,0.3); color: var(--white); }
+  .tier-badge.break { background: var(--gray-800); color: var(--gray-300); }
+
+  /* FRAMEWORK VISUAL */
+  .framework-section {
+    background: var(--gray-100);
+    padding: 80px 60px;
+  }
+  .framework-section .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .framework-visual {
+    margin-top: 48px;
+  }
+  .fw-anchor {
+    background: var(--dark);
+    color: var(--white);
+    padding: 40px 48px;
+    border-radius: 16px 16px 0 0;
+    text-align: center;
+  }
+  .fw-anchor h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .fw-anchor h2 span { color: var(--red); }
+  .fw-anchor p {
+    font-size: 15px;
+    color: var(--gray-400);
+    letter-spacing: 2px;
+  }
+  .fw-pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .fw-pillar {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .fw-pillar h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: 4px;
+  }
+  .fw-pillar .alt {
+    font-size: 12px;
+    color: var(--red);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .fw-pillar ul {
+    list-style: none;
+  }
+  .fw-pillar li {
+    font-size: 14px;
+    color: var(--gray-600);
+    padding: 4px 0;
+  }
+  .fw-engine {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .fw-engine-card {
+    background: var(--dark);
+    color: var(--white);
+    padding: 28px 32px;
+    border: 1px solid var(--gray-800);
+  }
+  .fw-engine-card:first-child {
+    border-radius: 0 0 0 16px;
+  }
+  .fw-engine-card:last-child {
+    border-radius: 0 0 16px 0;
+  }
+  .fw-engine-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+  .fw-engine-card p {
+    font-size: 13px;
+    color: var(--gray-400);
+    line-height: 1.6;
+  }
+  .fw-engine-card .highlight {
+    color: var(--red);
+    font-weight: 600;
+  }
+
+  /* PROCESS */
+  .process-section {
+    background: var(--white);
+    padding: 80px 60px;
+  }
+  .process-section .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .process-flow {
+    display: flex;
+    gap: 0;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+  .process-step {
+    flex: 1;
+    min-width: 160px;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 24px 20px;
+    position: relative;
+    margin-right: 12px;
+    margin-bottom: 12px;
+  }
+  .process-step.kill {
+    background: var(--gray-100);
+    border: 2px dashed var(--gray-300);
+  }
+  .step-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--red);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .process-step h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--gray-900);
+  }
+  .process-step p {
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.5;
+  }
+  .step-arrow {
+    position: absolute;
+    right: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-400);
+    font-size: 18px;
+  }
+
+  /* CHALLENGES */
+  .challenge-section {
+    background: var(--dark);
+    color: var(--white);
+    padding: 80px 60px;
+  }
+  .challenge-section .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .challenge-section .section-title { color: var(--white); }
+  .challenge-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .challenge-card {
+    background: var(--gray-900);
+    border-radius: 12px;
+    padding: 32px 28px;
+    border: 1px solid var(--gray-800);
+  }
+  .challenge-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .challenge-card p {
+    font-size: 14px;
+    color: var(--gray-400);
+    line-height: 1.6;
+  }
+  .challenge-card .from {
+    color: var(--gray-500);
+    font-weight: 600;
+  }
+  .challenge-card .to {
+    color: var(--red);
+    font-weight: 600;
+  }
+
+  /* BENCHMARKS */
+  .bench-section {
+    background: var(--gray-100);
+    padding: 80px 60px;
+  }
+  .bench-section .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .bench-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .bench-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 32px;
+    border: 1px solid var(--gray-200);
+  }
+  .bench-card .company {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+  .bench-card .method {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: 12px;
+  }
+  .bench-card p {
+    font-size: 14px;
+    color: var(--gray-500);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .bench-card .steal {
+    font-size: 13px;
+    color: var(--red);
+    font-weight: 600;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  /* FOOTER */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 60px;
+    border-top: 1px solid var(--gray-200);
+  }
+  .footer-left {
+    font-size: 13px;
+    color: var(--gray-500);
+  }
+  .footer-left strong { color: var(--gray-900); }
+  .footer-right {
+    font-size: 11px;
+    color: var(--gray-400);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* INVESTOR NARRATIVE */
+  .investor-section {
+    background: linear-gradient(135deg, #1a0000 0%, var(--dark) 100%);
+    color: var(--white);
+    padding: 80px 60px;
+  }
+  .investor-section .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .investor-section .section-title { color: var(--white); }
+  .investor-quote {
+    background: rgba(204,0,0,0.08);
+    border-left: 4px solid var(--red);
+    border-radius: 0 12px 12px 0;
+    padding: 32px 36px;
+    margin-top: 40px;
+    font-size: 17px;
+    color: var(--gray-300);
+    line-height: 1.8;
+    font-style: italic;
+  }
+  .investor-quote strong { color: var(--white); font-style: normal; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { padding: 60px 32px 50px; }
+    .hero h1 { font-size: 44px; }
+    section, .why-section, .vocab-section, .process-section,
+    .bench-section, .challenge-section, .investor-section, .framework-section { padding: 60px 32px; }
+    .why-grid, .bench-grid, .challenge-grid { grid-template-columns: 1fr; }
+    .fw-pillars { grid-template-columns: 1fr 1fr; }
+    .vocab-flow, .process-flow { flex-direction: column; gap: 12px; }
+    .vocab-card { margin-left: 0 !important; }
+    .process-step { margin-right: 0; }
+    .process-step .step-arrow { display: none; }
+    .fw-engine { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Innovation Framework â Proposal</div>
+  <h1><span>DROPS.</span></h1>
+  <p class="subtitle">A new innovation framework for Coca-Cola.<br>Every ocean starts with a single drop.</p>
+  <div class="confidential">Classified â Confidential Â· REBORRN Â· March 2026</div>
+</div>
+
+<!-- WHY DROPS -->
+<div class="why-section">
+  <div class="inner">
+    <div class="section-label">The Name</div>
+    <div class="section-title">Why DROPS?</div>
+    <p class="section-text">Innovation at Coca-Cola isn't one big bang. It's disciplined, repeatable, compounding. Every innovation bet is a Drop â small, intentional, precise. But drops don't stay small.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="icon">ð§</div>
+        <h3>It's distinctly beverage</h3>
+        <p>Without being forced. The language is native to the business â liquid, flow, volume, impact. No consultant jargon, no borrowed tech metaphors.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">âï¸</div>
+        <h3>It's an operating language</h3>
+        <p>Not just a name on a slide. Teams can actually use it: "How many Drops in pipeline?" "This Drop is ready to scale." "Let's kill this Drop and reallocate." It works in a meeting, not just a boardroom.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">ð</div>
+        <h3>It signals discipline</h3>
+        <p>Drops are precise and intentional â Not random splashes. It frames innovation as portfolio management, not innovation theater. Exactly what investors want to hear.</p>
+      </div>
+    </div>
+  </div>
+</div>  £ÂÒÒdô4%TÄ%ÒÓà£ÆFb6Æ73Ò'fö6"×6V7Föâ#à¢ÆFb6Æ73Ò&ææW"#à¢ÆFb6Æ73Ò'6V7FöâÖÆ&VÂ#åFRÆæwVvSÂöFcà¢ÆFb6Æ73Ò'6V7Föâ×FFÆR#äæ÷Fær2&÷&â&rãÆ'#äWfW'Fær7F'G22G&÷ãÂöFcà¢Ç6Æ73Ò'6V7Föâ×FWB#äE$õ22&öw&W76öâÂæ÷B6FVv÷'77FVÒâWfW'ææ÷fFöâ(	BæòÖGFW"÷rÖ&F÷W2(	BVçFW'2FR77FVÒ2G&÷âB2FòV&âG2vf÷'v&BâFRFffW&Væ6R&WGvVVâææ÷fFöç26âwBvB¶æBöb&WBFW&RâBw2÷rf"FWG&fVÂãÂ÷à ¢ÆFb6Æ73Ò'fö6"ÖfÆ÷r#à¢ÆFb6Æ73Ò'fö6"Ö6&BG&÷#à¢Ç7â6Æ73Ò'bÖ6öâ#ï	ù*sÂ÷7ãà¢Æ3äG&÷Âö3à¢ÆFb6Æ73Ò'b×FvÆæR#åvW&RWfW'ææ÷fFöâ&Vvç3ÂöFcà¢ÇäWfW'FVVçFW'2FR77FVÒ2G&÷â6ÖÆÂÂFW7F&ÆRÂVç&÷fVââæòW6WFöç2(	BWfVâFR&vvW7BÖ&Föç27F'BW&Râ%vRFæ²gVæ7FöæÂ&WfW&vW26÷VÆBv÷&²â4R6(	BÆWBw2'VâG&÷â#Â÷à¢ÂöFcà¢ÆFb6Æ73Ò'fö6"Ö'&÷r#î(i#ÂöFcà¢ÆFb6Æ73Ò'fö6"Ö6&B&ÆR#à¢Ç7â6Æ73Ò'bÖ6öâ#î)xãÂ÷7ãà¢Æ3å&ÆSÂö3à¢ÆFb6Æ73Ò'b×FvÆæR#äG&÷FBw2&÷færG6VÆcÂöFcà¢ÇåFRG&÷v÷&¶VB(	BæBæ÷rBw27&VFær×7B&WöæBG2÷&væÂ66÷Râ7&VFærFòF¦6VçBÖ&¶WG2ÂæfÇVVæ6ær÷FW"'&æG2â&ÆR6âwBFV66öâ÷RÖ¶R(	BBw2â÷WF6öÖR÷Rö'6W'fRãÂ÷à¢ÂöFcà¢ÆFb6Æ73Ò'fö6"Ö'&÷r#î(i#ÂöFcà¢ÆFb6Æ73Ò'fö6"Ö6&B7G&VÒ#à¢Ç7â6Æ73Ò'bÖ6öâ#î8ûóÂ÷7ãà¢Æ3å7G&VÓÂö3à¢ÆFb6Æ73Ò'b×FvÆæR#äG&÷26ö×÷VæFærçFòÆFf÷&ÓÂöFcà¢Çä×VÇFÆR7V66W76gVÂG&÷2âFR6ÖR76RfR6ö×÷VæFVBçFò6öÖWFærW'67FVçBâæòÆöævW"&ö¦V7B(	BÆFf÷&Òâ%¦W&ò×7Vv"2æ÷r7G&VÒâB2G2÷vâVÆæRöbG&÷2fVVFærBâ#Â÷à¢ÂöFcà¢ÆFb6Æ73Ò'fö6"Ö'&÷r#î(i#ÂöFcà¢ÆFb6Æ73Ò'fö6"Ö6&BvfR#à¢Ç7â6Æ73Ò'bÖ6öâ#ï	øÈ£Â÷7ãà¢Æ3åvfSÂö3à¢ÆFb6Æ73Ò'b×FvÆæR#ä7G&VÒFB&W6W2FR6FVv÷'ÂöFcà¢ÇävfR6âwBÆææVB(	BBVÖW&vW2âvVâ7G&VÒG2W66RfVÆö6GÂ7&÷76W2Væ÷VvÖ&¶WG2Â'VÆG2Væ÷VvÖöÖVçGVÒÂB&W6W2FRVçF&R6FVv÷'âvfW2&RFR&Wv&BöbF66ÆæVB6ö×÷VæFærãÂ÷à¢ÂöFcà¢ÂöFcà ¢ÂÒÒ&öw&W76öâF&ÆRÒÓà¢ÇF&ÆR6Æ73Ò'÷'FföÆò×F&ÆR#à¢ÇFVCà¢ÇG#à¢ÇFå7FvSÂ÷Fà¢ÇFåvBBÖVç3Â÷Fà¢ÇFä÷r÷RÖævRCÂ÷Fà¢ÇFå7VVCÂ÷Fà¢ÇFä÷r÷RÖV7W&RCÂ÷Fà¢Â÷G#à¢Â÷FVCà¢ÇF&öGà¢ÇG#à¢ÇFCãÇ7â6Æ73Ò'FW"Ö&FvR6÷&R#äG&÷Â÷7ããÂ÷FCà¢ÇFCä6ævÆR&WBVçFW&ærFR77FVÓÂ÷FCà¢ÇFCäÖçâ&ÆÆVÂÂf7B76ÆRÂ6VFòFW7BÂV7Fò¶ÆÃÂ÷FCà¢ÇFCã(	3"vVV·2FòÖ&¶WBFW7CÂ÷FCà¢ÇFCå6væÃ¢FöW2Bv÷&³ò6öç7VÖW"&W7öç6RÂfV6&ÆGÂ÷FCà¢Â÷G#à¢ÇG#à¢ÇFCãÇ7â6Æ73Ò'FW"Ö&FvRw&÷wF#å&ÆSÂ÷7ããÂ÷FCà¢ÇFCäG&÷7&VFær×7B&WöæBG2÷&vãÂ÷FCà¢ÇFCäö'6W'fRæBfVVB(	BçfW7B&VæBvBw27&VFær÷&væ6ÆÇÂ÷FCà¢ÇFCã>(	3bÖöçF2öbÖöÖVçGVÓÂ÷FCà¢ÇFCå7&VC¢÷rf"2B&V6æsò7&÷72ÖÖ&¶WBÂ7&÷72Ö'&æCÂ÷FCà¢Â÷G#à¢ÇG#à¢ÇFCãÇ7â6Æ73Ò'FW"Ö&FvRw&÷wF#å7G&VÓÂ÷7ããÂ÷FCà¢ÇFCä×VÇFÆRG&÷26ö×÷VæFærçFòÆFf÷&ÓÂ÷FCà¢ÇFCäFVF6FVB&W6÷W&6W2Â÷vâVÆæRöbG&÷2Â7W7FæVBçfW7FÖVçCÂ÷FCà¢ÇFCãn(	3ÖöçF2FòW7F&Æ6Â÷FCà¢ÇFCåÆFf÷&ÒVÇF¢&WfVçVRÂVÆæRFWFÂvVöw&2&V6Â÷FCà¢Â÷G#à¢ÇG#à¢ÇFCãÇ7â6Æ73Ò'FW"Ö&FvR'&V²#åvfSÂ÷7ããÂ÷FCà¢ÇFCä7G&VÒFB&W6W2FR6FVv÷'Â÷FCà¢ÇFCå&÷FV7BæB66ÆR(	BF22æ÷r7G&FVv2æg&7G'V7GW&SÂ÷FCà¢ÇFCäVÖW&vW2÷fW".(	32V'3Â÷FCà¢ÇFCä6FVv÷'×7C¢Ö&¶WB7&VFöâÂ6ö×WFFfRÖöCÂ÷FCà¢Â÷G#à¢Â÷F&öGà¢Â÷F&ÆSà¢ÂöFcà£ÂöFcç6ÆRÂ6VFòFW7BÂV7Fò¶ÆÃÂ÷FCà¢ÇFCã(	3"vVV·2FòÖ&¶WBFW7CÂ÷FCà¢ÇFCå6væÃ¢FöW2Bv÷&³ò6öç7VÖW"&W7öç6RÂfV6&ÆGÂ÷FCà¢Â÷G#à¢ÇG#à¢ÇFCãÇ7â6Æ73Ò'FW"Ö&FvRw&÷wF#å&ÆSÂ÷7ããÂ÷FCà¢ÇFCäG&÷7&VFær×7B&WöæBG2÷&vãÂ÷FCà¢ÇFCäö'6W'fRæBfVVB(	BçfW7B&VæBvBw27&VFær÷&væ6ÆÇÂ÷FCà¢ÇFCã>(	3bÖöçF2öbÖöÖVçGVÓÂ÷FCà¢ÇFCå7&VC¢÷rf"2B&V6æsò7&÷72ÖÖ&¶WBÂ7&÷72Ö'&æCÂ÷FCà¢Â÷G#à¢ÇG#à¢ÇFCãÇ7â6Æ73Ò'FW"Ö&FvRw&÷wF#å7G&VÓÂ÷7ããÂ÷FCà¢ÇFCä×VÇFÆRG&÷26ö×÷VæFærçFòÆFf÷&ÓÂ÷FCà¢ÇFCäFVF6FVB&W6÷W&6W2Â÷vâVÆæRöbG&÷2Â7W7FæVBçfW7FÖVçCÂ÷FCà¢ÇFCãn(	3ÖöçF2FòW7F&Æ6Â÷FCà¢ÇFCåÆFf÷&ÒVÇF¢&WfVçVRÂVÆæRFWFÂvVöw&2&V6Â÷FCà¢Â÷G#à¢ÇG#à¢ÇFCãÇ7â6Æ73Ò'FW"Ö&FvR'&V²#åvfSÂ÷7ããÂ÷FCà¢ÇFCä7G&VÒFB&W6W2FR6FVv÷'Â÷FCà¢ÇFCå&÷FV7BæB66ÆR(	BF22æ÷r7G&FVv2æg&7G'V7GW&SÂ÷FCà¢ÇFCäVÖW&vW2÷fW".(	32V'3Â÷FCà¢ÇFCä6FVv÷'×7C¢Ö&¶WB7&VFöâÂ6ö×WFFfRÖöCÂ÷FCà¢Â÷G#à¢Â÷F&öGà¢Â÷F&ÆSà¢ÂöFcà£ÂöFcà £ÂÒÒe$ÔUtõ$²d5TÂÒÓà£ÆFb6Æ73Ò&g&ÖWv÷&²×6V7Föâ#à¢ÆFb6Æ73Ò&ææW"#à¢ÆFb6Æ73Ò'6V7FöâÖÆ&VÂ#åFRg&ÖWv÷&³ÂöFcà¢ÆFb6Æ73Ò'6V7Föâ×FFÆR#ä&VÆVg2²VævæSÂöFcà¢Ç6Æ73Ò'6V7Föâ×FWB#åFR7W'&VçBG&gBFVfæW2vBææ÷fFöâ2&VÆVg2âvR&÷÷6RFFær÷rææ÷fFöâ%Tå2VævæRâ&VÆVg2vF÷WBâVævæR2÷7FW"öâFRvÆÂââVævæRvF÷WB&VÆVg22æò6÷VÂãÂ÷à ¢ÆFb6Æ73Ò&g&ÖWv÷&²×f7VÂ#à¢ÂÒÒæ6÷  -->
+      <div class="fw-anchor">
+        <h2>Innovation is all about <span>Growth.</span></h2>
+        <p>Real Â· Predictable Â· Accretive</p>
+      </div>
+
+      <!-- Pillars = WHAT -->
+      <div class="fw-pillars">
+        <div class="fw-pillar">
+          <h3>Human</h3>
+          <div class="alt">What we solve for</div>
+          <ul>
+            <li>Experiences</li>
+            <li>Benefits</li>
+            <li>Accessibility</li>
+          </ul>
+        </div>
+        <div class="fw-pillar">
+          <h3>Versatile</h3>
+          <div class="alt">What forms it takes</div>
+          <ul>
+            <li>Products</li>
+            <li>Packs</li>
+            <li>Equipment</li>
+          </ul>
+        </div>
+        <div class="fw-pillar">
+          <h3>Edge</h3>
+          <div class="alt">How we build it</div>
+          <ul>
+            <li>Science</li>
+            <li>Craft</li>
+            <li>Tech</li>
+          </ul>
+        </div>
+        <div class="fw-pillar">
+          <h3>Networked</h3>
+          <div class="alt">Where it comes from</div>
+          <ul>
+            <li>Hubs</li>
+            <li>R&D</li>
+            <li>Partners</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Engine = HOW -->
+      <div class="fw-engine">
+        <div class="fw-engine-card">
+          <h4>â©ï¸ Process â The Engine</h4>
+          <p><span class="highlight">Source â Shape â Test â Scale â Kill.</span><br>Clear stages, clear gates, clear cycle time. Inspired by AB InBev's 12-week accelerator and P&G's Transaction Learning Experiments.</p>
+        </div>
+        <div class="fw-engine-card">
+          <h4>ð Metrics â The Proof</h4>
+          <p><span class="highlight">Pipeline health Â· Velocity Â· Hit rate Â· Revenue from innovation Â· Ecosystem leverage.</span><br>Five metrics. That's enough. Each maps to a question investors and the board will ask.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="process-section">
+  <div class="inner">
+    <div class="section-label">The Operating Language</div>
+    <div class="section-title">The life of a Drop</div>
+    <p class="section-text">Every innovation enters as a Drop and has to earn its way forward. Most Drops get killed â that's the point. The ones that survive create Ripples. The ones that compound become Streams. And very rarely, a Stream becomes a Wave.</p>
+
+    <div class="process-flow">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h4>Source the Drop</h4>
+        <p>Where does the idea come from? Hubs, R&D, partners, consumer insights, market signals.</p>
+        <span class="step-arrow">â</span>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h4>Shape the Drop</h4>
+        <p>Is it viable? Prototype, stress-test the concept, define success criteria.</p>
+        <span class="step-arrow">â</span>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h4>Test the Drop</h4>
+        <p>Does it work? Small-scale market experiment. Real consumers, real data, real signal.</p>
+        <span class="step-arrow">â</span>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h4>Watch for Ripples</h4>
+        <p>Is it spreading? Look for organic pull â cross-market interest, cross-brand application, partner demand.</p>
+        <span class="step-arrow">â</span>
+      </div>
+      <div class="process-step">
+        <div class="step-num">5</div>
+        <h4>Build the Stream</h4>
+        <p>It's compounding. Dedicate resources, create a pipeline of Drops feeding it, scale deliberately.</p>
+        <span class="step-arrow">â</span>
+      </div>
+      <div class="process-step kill">
+        <div class="step-num" style="background: var(--dark);">â</div>
+        <h4>Kill the Drop</h4>
+        <p>At any stage: does this still earn its place? Kill fast, reallocate, learn. No zombie projects.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE'D CHANGE -->
+<div class="challenge-section">
+  <div class="inner">
+    <div class="section-label">Proposed Evolution</div>
+    <div class="section-title">What we'd strengthen in the cur[YÙ]]Û\ÜÏHÚ[[ÙKYÜY]Û\ÜÏHÚ[[ÙKXØ\YÝÈ][È[ÛÜÚYHÚ]]\ÈÚHÝ\[\È\ØÜXHÚ][Ý][Û\ËÜ[Û\ÜÏHÛHÝ\[HZ\ÜÚ[ÎÜÜ[ÝÈHXXÚ[HÜ\]\È8 %ÝYÙ\ËØ]\ËÞXÛH[YKX[H[Ù[Ü[Û\ÜÏHÈÔÈYÈH[Ú[H^Y\ÜÜ[ÜÙ]]Û\ÜÏHÚ[[ÙKXØ\[]]HØÙ\ÜÈ	Y]XÜÈÛH[X\È[Ú[OÚÜ[Û\ÜÏHÛHÝ\[NÜÜ[ØÙ\ÜÈ[Y]XÜÈÚ]]HÝÛH\È[X\ËÜ[Û\ÜÏHÈÜÜÙYÜÜ[^HXÛÛYHHÙ[[Ü\][ÈÞ\Ý[K]	ËP[][[]\8 %HØÙ\ÜÈTÈH[Ý][ÛÜÙ]]Û\ÜÏHÚ[[ÙKXØ\[ÙXÙHHÙÜ\ÜÚ[Û[Ù[ÚÜ[Û\ÜÏHÛHÝ\[NÜÜ[È\Ý[Ý[Û]ÙY[X\K\ÝYÙH^\[Y[È[Ý[]Ü\ËÜ[Û\ÜÏHÈÜÜÙYÜÜ[]\H[Ý][ÛÝ\È\ÈHÜ[X\È]ÈØ^HÈ\H8¡¤ÝX[H8¡¤Ø]KY\[X[YÙ[Y[Y\[Y]XÜÈ]XXÚÝYÙKÝ[È\ÈÜYËÜÙ]]Û\ÜÏHÚ[[ÙKXØ\Z[[HÚ[YXÚ[\ÛOÚÜ[Û\ÜÏHÛH\ÚÎÜÜ[]È[Ý[ÛÈHÈÝH[YHH[[ÈÛÈX[H[ÜËÜ[Û\ÜÏHÈÔÈ[Ý[ÎÜÜ[^XÚ]Ø]\È]]\HÝYÙKÚ[\ÝX[ØØ]KÈÛXYHÚXÝË[[]\Ý]	HÙÚXÝÈ[ÝXY[\XÝÜÙ]]Û\ÜÏHÚ[[ÙKXØ\YH[YH[Y[Ú[ÛÚÜ[Û\ÜÏHÛHÝ\[NÜÜ[È\Ý[Ý[Û]ÙY[X\]\H[ÛË]\H[Ý][ÛÜ[Û\ÜÏHÈÜÜÙYÜÜ[Ý[Ý[HÛÜH
+ÝXÝ[ÜÝÈ^\Ý[ÊHËÜX]HH]È
+]ÈÜXÙ\ÊK[Ü\YH	ÉÜÈ[Ù[ÜÙ]]Û\ÜÏHÚ[[ÙKXØ\[XYRHXÜÜÜÈ[[\ÏÚÜ[Û\ÜÏHÛHÝ\[NÜÜ[RH]\È[\XÚ]H[ÚYHYÙH
+XÚ
+KÜ[Û\ÜÏHÈÜÜÙYÜÜ[RH\È[\ÝXÝ\HXÜÜÜÈ[Ý\[\È8 %ÛÛÝ[Y\[ÚYÚÈ
+[X[KÙXÝ]
+\Ø][JKY]ÙÛÙÞH
+YÙJK\\\ØÛÝ\H
+]ÛÜÙY
+KÜÙ]Ù]Ù]Ù]KKHSÒPTÔÈKO]Û\ÜÏH[Ú\ÙXÝ[Û]Û\ÜÏH[\]Û\ÜÏHÙXÝ[Û[X[Ú]H\ÝÛÛ\[Y\ÈÏÙ]]Û\ÜÏHÙXÝ[Û]]H]\HÚ[[È[Ý]Ü\ÈH[YYY]ÙÛÙÞHÚ]HÛX\Ü\][È[ÝXYÙOÙ]Û\ÜÏHÙXÝ[Û]^ÙH\ÙX\ÚY	Ë[[]\P[]Z[ZÙ[\ØZK[X^Û\K\ÛKÛÛÙÛK[Ø[\Ý[Ë\IÜÈÚ]ÈÝX[Ü]Û\ÜÏH[ÚYÜY]Û\ÜÏH[ÚXØ\]Û\ÜÏHÛÛ\[H	ÏÙ]]Û\ÜÏHY]ÙÛÛXÝ
+È][ÜÙ]ÍIJÈÙ[Ý][ÛÈÛH^\[\\Ë]K]XÝÜÝ\\[Ü]H[Ù[\ÈXÚ\Ú[Û[Y]ÛÜÈXÜÜÜÈH[ËRHÝÙ\ÈIHÙÙXÝ][ÜY[\YÝXØÙ\ÜÈ]HÈLM	KÜ]Û\ÜÏHÝX[¸¡¤ÝX[HÝ\\[Ü]H[Ù[\ÈHXÚ\Ú[Û[Y]ÛÜË[ØXÝ[ÛX\[È^\[Y[È8 %ÛX[]ÈYÜHYÈØØ[[ËÙ]Ù]]Û\ÜÏH[ÚXØ\]Û\ÜÏHÛÛ\[H[[]\Ù]]Û\ÜÏHY]Ù]Ù\YÙÙ\]\Ù]Ý][Ý][ÛÚXÝÈH	KÝXY]\YÙHÚXÝÚ^KL[Ý][Û]Ü\ÈXXÚ\Ù][È8 «LJÈ][YKÝ[H\È[\KXÛY[]ÜH
+]ÚT[ÝT\\KÜ]Û\ÜÏHÝX[¸¡¤ÝX[H]ÜH[Ù[8 %L]Ü\È]8 «LHXXÚËLØØ]\YÚXÝËH]ÚT[ÝT\\ØY[ÙKÙ]Ù]]Û\ÜÏH[ÚXØ\]Û\ÜÏHÛÛ\[HP[]Ù]]Û\ÜÏHY]Ù[\\ÏÙ]Ù\\]H[\H[Ú[HÚ]ÝÛ	[\ËL]ÙYZÈXØÙ[\]ÜÞXÛ\Ë	PÈ[[\HØ[\ËQTÈ]ÜHØ\\\ÈÌHÙÛÛ\[H][YKÜ]Û\ÜÏHÝX[¸¡¤ÝX[HL]ÙYZÈÞXÛH\ÈÜYY[ÚX\Ë[Ý][Û[ÛY\È\Ú[\ÜÈ[Ù[[Ý][ÛÝ\ÝÙXÝÙ]Ù]]Û\ÜÏH[ÚXØ\]Û\ÜÏHÛÛ\[HZ[ZÙ[Ù]]Û\ÜÏHY]Ù]\ÜY[ÌÙ]¸ «PYÚ][XÚØÛH[\ÝY[YK\[\Ý]YÞNXØÙ[\]HÜÝÝÝ\\ÙXÝ]]K]\KTÛÙZ[ZÙ[Ü]ÈLÉHÜØ[XØ[HLÜ]Û\ÜÏHÝX[¸¡¤ÝX[YH[\È
+ÜÝÝÈÙXÝ]]HÈ]\KTÛÙ[ÊH\ÈÝ]YÚXÈÜØ[^\HYÈ]\ØXÚÚ]Ù]Ù]]Û\ÜÏH[ÚXØ\]Û\ÜÏHÛÛ\[H[X^ÛÙ]]Û\ÜÏHY]ÙÛÜÚ[ÈXÚÝØ\ÏÙ]Ý\Ú]HÛÛÝ[Y\\ÜÈ[X\ÙK[Z[HÙXÝÛË\^H]]ÛÛ[Ý\ÈX[\Ë\HHÈ\HXÚ\Ú[Û[Y]ÛÜÈ8 %[ÜÝ[Ý][Û\È]\ÚXKÛÈ[ÝH\ÝÜ]Û\ÜÏHÝX[¸¡¤ÝX[Ü]HHÛÛÝ[Y\ The ones that work create <strong>Ripples</strong> â spreading across markets and brands organically. When multiple Drops compound in the same space, they become a <strong>Stream</strong> â a sustained innovation platform with its own pipeline and investment. And when a Stream hits escape velocity, it becomes a <strong>Wave</strong> â reshaping the category entirely.<br><br>
+      Today we have <strong>X active Drops</strong> in the system, <strong>Y creating Ripples</strong> across markets, and <strong>Z established Streams</strong>. Average time from idea to market test: <strong>10 weeks</strong>. Nothing is born big. Everything has to earn it."
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-left"><strong>REBORRN</strong> Â· Prepared for Romain Mallard Â· March 2026</div>
+  <div class="footer-right">Classified â Confidential</div>
+</div>
+
+</body>
+</html>
